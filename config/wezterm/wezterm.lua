@@ -9,14 +9,19 @@ local config = wezterm.config_builder()
 -- 
 -- parameters
 -- 
-local default_color = "#00B379"
+local active_bg_color = "#00B379"
+local inactive_bg_color = "#5c6d74"
+local font_color = "#FFFFFF"
+
+local mux = wezterm.mux
+local HOME = os.getenv("HOME")
 
 ----------------------------------------------------
 -- Tab
 ----------------------------------------------------
 config.window_decorations = "RESIZE"
 config.show_tabs_in_tab_bar = true
-config.hide_tab_bar_if_only_one_tab = true
+config.hide_tab_bar_if_only_one_tab = false
 config.use_fancy_tab_bar = true
 
 config.window_frame = {
@@ -33,17 +38,17 @@ config.colors = {
 	tab_bar = {
 	  inactive_tab_edge = "none",
 	},
-	compose_cursor = default_color,
-	split = default_color,
+	compose_cursor = active_bg_color,
+	split = active_bg_color,
 }
 
 wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_width)
-	local background = "#5c6d74"
-	local foreground = "#FFFFFF"
+	local background = inactive_bg_color
+	local foreground = font_color
  
 	if tab.is_active then
-	  background = default_color
-	  foreground = "#FFFFFF"
+	  background = active_bg_color
+	  foreground = font_color
 	end
  
 	local title = "   " .. wezterm.truncate_right(tab.active_pane.title, max_width - 1) .. "   "
@@ -60,24 +65,15 @@ end)
 -- 
 config.keys = require("keybinds").keys
 config.key_tables = require("keybinds").key_tables
-  
--- 
--- hyperlink
--- 
--- config.hyperlink_rules = wezterm.default_hyperlink_rules()
--- table.insert(config.hyperlink_rules, {
--- 	regex = [[\b[tt](\d+)\b]],
--- 	format = 'https://example.com/tasks/?t=$1',
--- })
--- table.insert(config.hyperlink_rules, {
--- 	regex = [[["]?([\w\d]{1}[-\w\d]+)(/){1}([-\w\d\.]+)["]?]],
--- 	format = 'https://www.github.com/$1/$3',
--- })
 
 -- 
 -- leader
 -- 
 config.leader = { key = "q", mods = "CTRL", timeout_milliseconds = 2000 }
+
+-- 
+-- workspace
+-- 
 
 -- 
 -- others

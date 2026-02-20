@@ -150,6 +150,9 @@ return {
     { key = 'RightArrow', mods = 'OPT', action = act.SendString '\x1bf' },
     { key = 'j', mods = 'LEADER', action = act.SplitVertical { domain = 'CurrentPaneDomain' } },
     { key = 'l', mods = 'LEADER', action = act.SplitHorizontal { domain = 'CurrentPaneDomain' } },
+    { key = '{', mods = 'SHIFT|CTRL', action = act.ActivateTabRelative(-1) },
+    { key = '}', mods = 'SHIFT|CTRL', action = act.ActivateTabRelative(1) },
+    -- { key = 's', mods = 'LEADER', action = act.EmitEvent 'switch-to-workspace' },
   },
 
   key_tables = {
