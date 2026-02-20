@@ -8,7 +8,7 @@
 
 ```bash
 # 1. リポジトリをクローン
-git clone --recursive <this-repo-url> ~/dotfiles
+git clone --recursive git@github.com:stonesstones/dotfiles.git $HOME/dotfiles
 cd ~/dotfiles
 
 # 2. 設定を ~/.config にリンク
