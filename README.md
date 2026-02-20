@@ -44,7 +44,7 @@ git submodule update --remote config/nvim
 
 手動で行う場合の手順：
 
-1. **ログインシェルを Zsh に変更**（デフォルトが Zsh でない場合）
+1. **ログインシェルを Zsh に変更**
 
    `~/.bashrc` の末尾に追加：
 
@@ -63,10 +63,10 @@ git submodule update --remote config/nvim
    ```
 
 3. **Powerlevel10k をインストール**
+   [Powerlevel10k](https://github.com/romkatv/powerlevel10k)
 
    ```bash
-   git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/powerlevel10k
-   echo 'source ~/powerlevel10k/powerlevel10k.zsh-theme' >> ~/.zshrc
+   git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k"
    ```
 
 4. **Powerlevel10k の設定をコピー**
@@ -77,6 +77,8 @@ git submodule update --remote config/nvim
    cp .p10k.zsh "${HOME}/"
    ```
 
+5. server.zshrcを${HOME}/.zshrcにシンボリックリンクをはる
+もともとあった.zshrcは.zshrc_backupとする
 ---
 
 ## 構成
