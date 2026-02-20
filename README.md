@@ -9,7 +9,7 @@
 ```bash
 # 1. リポジトリをクローン
 git clone --recursive git@github.com:stonesstones/dotfiles.git $HOME/dotfiles
-cd ~/dotfiles
+cd $HOME/dotfiles
 
 # 2. 設定を ~/.config にリンク
 ./link.sh
