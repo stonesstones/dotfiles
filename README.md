@@ -1,2 +1,5 @@
 # dotfiles
-dotfiles
+
+# set up
+
+# update nvim 
