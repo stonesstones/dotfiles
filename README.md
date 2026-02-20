@@ -46,7 +46,7 @@ git submodule update --remote config/nvim
 
 1. **ログインシェルを Zsh に変更**
 
-   `~/.bashrc` の末尾に追加：
+   `${HOME}/.bashrc` の末尾に追加：
 
    ```bash
    if [ -x /bin/zsh ]; then
@@ -56,7 +56,7 @@ git submodule update --remote config/nvim
 
 2. **Oh My Zsh をインストール**
 
-   [Oh My Zsh](https://github.com/ohmyzsh/ohmyzsh) のインストーラを実行します。既存の `~/.zshrc` は `~/.zshrc.pre-oh-my-zsh` に退避されます。
+   [Oh My Zsh](https://github.com/ohmyzsh/ohmyzsh) のインストーラを実行します。既存の `${HOME}/.zshrc` は `${HOME}/.zshrc.pre-oh-my-zsh` に退避されます。
 
    ```bash
    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
