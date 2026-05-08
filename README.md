@@ -49,8 +49,9 @@ git submodule update --remote config/nvim
    `${HOME}/.bashrc` の末尾に追加：
 
    ```bash
-   if [ -x /bin/zsh ]; then
-       exec /bin/zsh
+   if [[ $- == *i* ]]; then
+       export SHELL=/bin/zsh
+       exec /bin/zsh -l
    fi
    ```
 
