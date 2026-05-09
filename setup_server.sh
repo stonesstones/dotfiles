@@ -22,8 +22,9 @@ echo ""
 
 # 1. Use Zsh as login shell — append to $HOME/.bashrc
 echo -e "${C_SECTION}[1/5] Set Zsh as login shell${C_RESET}"
-ZSH_EXEC_LINE='if [ -x /bin/zsh ]; then
-    exec /bin/zsh
+ZSH_EXEC_LINE='if [[ $- == *i* ]] && [ -x /bin/zsh ]; then
+    export SHELL=/bin/zsh
+    exec /bin/zsh -l
 fi'
 if ! grep -q 'exec /bin/zsh' "$HOME/.bashrc" 2>/dev/null; then
   echo -e "${C_OK}==> Adding zsh to $HOME/.bashrc${C_RESET}"

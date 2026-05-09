@@ -49,11 +49,13 @@ git submodule update --remote config/nvim
    `${HOME}/.bashrc` の末尾に追加：
 
    ```bash
-   if [[ $- == *i* ]]; then
+   if [[ $- == *i* ]] && [ -x /bin/zsh ]; then
        export SHELL=/bin/zsh
        exec /bin/zsh -l
    fi
    ```
+
+   `[[ $- == *i* ]]` で対話シェル時のみ実行することで、`scp` / `rsync` 等の非対話セッションを壊さないようにします。
 
 2. **Oh My Zsh をインストール**
 
@@ -78,8 +80,17 @@ git submodule update --remote config/nvim
    cp .p10k.zsh "${HOME}/"
    ```
 
-5. server.zshrcを${HOME}/.zshrcにシンボリックリンクをはる
-もともとあった.zshrcは.zshrc_backupとする
+5. **`server.zshrc` を `${HOME}/.zshrc` にシンボリックリンク**
+
+   既存の `${HOME}/.zshrc`（実体ファイル）は `${HOME}/.zshrc_backup` に退避してから貼ります。
+
+   ```bash
+   if [ -f "${HOME}/.zshrc" ] && [ ! -L "${HOME}/.zshrc" ]; then
+       mv "${HOME}/.zshrc" "${HOME}/.zshrc_backup"
+   fi
+   ln -sf "$(pwd)/server.zshrc" "${HOME}/.zshrc"
+   ```
+
 ---
 
 ## 構成

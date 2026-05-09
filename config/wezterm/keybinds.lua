@@ -120,7 +120,7 @@ return {
     { key = 'u', mods = 'SHIFT|CTRL', action = act.CharSelect{ copy_on_select = true, copy_to =  'ClipboardAndPrimarySelection' } },
     { key = 'v', mods = 'SHIFT|CTRL', action = act.PasteFrom 'Clipboard' },
     { key = 'v', mods = 'SUPER', action = act.PasteFrom 'Clipboard' },
-    { key = 'w', mods = 'SHIFT|CTRL', action = act.CloseCurrentTab{ confirm = true } },
+    -- { key = 'w', mods = 'SHIFT|CTRL', action = act.CloseCurrentTab{ confirm = true } },
     { key = 'w', mods = 'SUPER', action = act.CloseCurrentTab{ confirm = true } },
     { key = 'x', mods = 'SHIFT|CTRL', action = act.ActivateCopyMode },
     { key = 'z', mods = 'SHIFT|CTRL', action = act.TogglePaneZoomState },
@@ -152,6 +152,7 @@ return {
     { key = 'l', mods = 'LEADER', action = act.SplitHorizontal { domain = 'CurrentPaneDomain' } },
     { key = '{', mods = 'SHIFT|CTRL', action = act.ActivateTabRelative(-1) },
     { key = '}', mods = 'SHIFT|CTRL', action = act.ActivateTabRelative(1) },
+    { key = 'w', mods = 'SHIFT|CTRL', action = act.CloseCurrentPane{ confirm = true } },
     -- { key = 's', mods = 'LEADER', action = act.EmitEvent 'switch-to-workspace' },
   },
 
